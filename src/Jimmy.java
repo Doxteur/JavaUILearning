@@ -44,7 +44,7 @@ public class Jimmy implements ActionListener {
 		new Jimmy();
 
 	}
-	//When actionListener is called.
+	//When actionListener is called
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		click +=1;
