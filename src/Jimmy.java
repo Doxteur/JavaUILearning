@@ -1,4 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,27 +26,36 @@ public class Jimmy implements ActionListener {
 		frame = new JFrame();
 		button = new JButton("Click me");
 		resetButton = new JButton("Reset");
-
 		panel = new JPanel();
 		label = new JLabel("Number of clicks: 0");
-
+		Color CoolBlack = Color.decode("#1F1F1F");
+		
 		// Setup Other
 		button.addActionListener(this);
 		resetButton.addActionListener(this);
-
+	
+		Font myFont = new Font("Arial", Font.BOLD, 20);
+		label.setFont(myFont);
+		label.setForeground(Color.white);
+		
 		// Setup du panel
 		panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-		panel.setLayout(new GridLayout(0, 1));
+		panel.setLayout(new GridLayout(2, 2));
 		panel.add(button);
 		panel.add(resetButton);
 		panel.add(label);
-
+		panel.setBackground(CoolBlack);
+		
+		
+		
 		// Setup de la frame
 		frame.add(panel, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Our GUI");
+		frame.setPreferredSize(new Dimension(700, 500));
 		frame.pack();
 		frame.setVisible(true);
+		
 	}
 
 	public static void main(String[] args) {
