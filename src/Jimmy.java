@@ -14,23 +14,30 @@ public class Jimmy implements ActionListener {
 	JFrame frame;
 	JLabel label;
 	JPanel panel;
+	JButton button;
+	JButton resetButton;
+
 	public Jimmy() {
 
 		// Setup des objects
 		frame = new JFrame();
-		JButton button = new JButton("Click me");
+		button = new JButton("Click me");
+		resetButton = new JButton("Reset");
+
 		panel = new JPanel();
 		label = new JLabel("Number of clicks: 0");
 
 		// Setup Other
 		button.addActionListener(this);
+		resetButton.addActionListener(this);
 
 		// Setup du panel
 		panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
 		panel.setLayout(new GridLayout(0, 1));
 		panel.add(button);
+		panel.add(resetButton);
 		panel.add(label);
-		
+
 		// Setup de la frame
 		frame.add(panel, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,16 +47,24 @@ public class Jimmy implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		//Call constructor 
+		// Call constructor
 		new Jimmy();
 
 	}
-	//When actionListener is called
+
+	// When actionListener is called
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		click +=1;
-		label.setText("Number of click : " + click);
-		
+		Object source = e.getSource();
+
+		if (source == button) {
+			click += 1;
+			label.setText("Number of click : " + click);
+		}
+		if (source == resetButton) {
+			click = 0;
+			label.setText("Number of click : " + click);
+		}
 	}
 
 }
