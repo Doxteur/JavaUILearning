@@ -40,11 +40,11 @@ public class Jimmy implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-
+		//Call constructor 
 		new Jimmy();
 
 	}
-
+	//When actionListener is called
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		click +=1;
